@@ -115,6 +115,18 @@ document
     .addEventListener("paste", function (evt) {
     evt.preventDefault();
 });
+// keep autocomplete but disable autofill hack
+[
+    "form__firstName__input",
+    "form__lastName__input",
+    "form__email__input",
+    "form__phone__input",
+    "form__address__input",
+    "form__city__input",
+    "form__zip__input",
+].forEach(function (elm) {
+    document.getElementById(elm).value = "";
+});
 document
     .getElementById("form__select__country")
     .addEventListener("change", function () {

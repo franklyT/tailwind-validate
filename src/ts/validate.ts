@@ -23,6 +23,7 @@ function validateCSS(fn: any, targ: any) {
 function notEmpty(str: string) {
   return str.length > 0;
 }
+
 document
   .getElementById("form__ship__button")
   ?.addEventListener("click", (evt: Event) => {
