@@ -1,18 +1,17 @@
 document
   .getElementById("form__select__country")!
   .addEventListener("change", function (this: any) {
+    const FORMZIPINPUT = document.getElementById("form__zip__input");
+    const FORMSELECTSTATEBLOCK = document.getElementById(
+      "form__select__state__block"
+    );
     if (this.options[this.selectedIndex].value === "United States of America") {
-      document.getElementById("form__select__state__block")!.style.display =
-        "inline-block";
-      (<HTMLSelectElement>(
-        document.getElementById("form__zip__input")
-      ))!.classList.add("form__input__valid");
+      FORMSELECTSTATEBLOCK!.style.display = "inline-block";
+      validateCSS(usZipIsValid, FORMZIPINPUT);
     } else {
-      document.getElementById("form__select__state__block")!.style.display =
-        "none";
-      (<HTMLSelectElement>(
-        document.getElementById("form__zip__input")
-      ))!.classList.remove("form__input__valid");
+      FORMSELECTSTATEBLOCK!.style.display = "none";
+      FORMZIPINPUT!.classList.remove("form__input__valid");
+      FORMZIPINPUT!.classList.remove("form__input__invalid");
     }
   });
 
