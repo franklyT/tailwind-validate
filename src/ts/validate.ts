@@ -20,37 +20,44 @@ function validateCSS(fn: any, targ: any) {
   }
 }
 
-function notEmpty(str:string) {
-    return str.length > 0;
+function notEmpty(str: string) {
+  return str.length > 0;
 }
+document
+  .getElementById("form__ship__button")
+  ?.addEventListener("click", (evt: Event) => {
+    evt.preventDefault();
+    validate();
+  });
 
 document
   .getElementById("form__email__input")
-  ?.addEventListener("blur", function () {
+  ?.addEventListener("change", function () {
     validateCSS(emailIsValid, this);
   });
 
 document
   .getElementById("form__phone__input")
-  ?.addEventListener("blur", function () {
+  ?.addEventListener("change", function () {
     validateCSS(phoneIsValid, this);
   });
 
-  // we can't reliably validate these, so we will simply check if they're empty
-  ["form__firstName__input", "form__lastName__input", "form__address__input", "form__city__input"].forEach(
-      function (elm) {
-        document
-        .getElementById(elm)
-        ?.addEventListener("blur", function () {
-          validateCSS(notEmpty, this);
-        });
-      }
-  );
+// we can't reliably validate these, so we will simply check if they're empty
+[
+  "form__firstName__input",
+  "form__lastName__input",
+  "form__address__input",
+  "form__city__input",
+].forEach(function (elm) {
+  document.getElementById(elm)?.addEventListener("change", function () {
+    validateCSS(notEmpty, this);
+  });
+});
 
 document
   .getElementById("form__zip__input")
-  ?.addEventListener("blur", function () {
-    const FORMSELECTCOUNTRY = <HTMLSelectElement>(
+  ?.addEventListener("change", function () {
+    const FORMSELECTCOUNTRY: HTMLSelectElement | null = <HTMLSelectElement>(
       document.getElementById("form__select__country")
     );
     if (

@@ -1,13 +1,17 @@
 document
   .getElementById("form__select__country")!
   .addEventListener("change", function (this: any) {
-    const FORMZIPINPUT = document.getElementById("form__zip__input");
-    const FORMSELECTSTATEBLOCK = document.getElementById(
+    const FORMZIPINPUT: HTMLElement | null = document.getElementById(
+      "form__zip__input"
+    );
+    const FORMSELECTSTATEBLOCK: HTMLElement | null = document.getElementById(
       "form__select__state__block"
     );
     if (this.options[this.selectedIndex].value === "United States of America") {
       FORMSELECTSTATEBLOCK!.style.display = "inline-block";
-      validateCSS(usZipIsValid, FORMZIPINPUT);
+      if ((<HTMLInputElement>FORMZIPINPUT)!.value.length > 0) {
+        validateCSS(usZipIsValid, FORMZIPINPUT);
+      }
     } else {
       FORMSELECTSTATEBLOCK!.style.display = "none";
       FORMZIPINPUT!.classList.remove("form__input__valid");
@@ -16,6 +20,7 @@ document
   });
 
 document.getElementById("form__select__country")!.innerHTML = /* html */ `
+    <option value=null disabled selected hidden>-- Select --</option>
     <option value="United States of America">United States of America</option>
     <option value="Afganistan">Afghanistan</option>
     <option value="Albania">Albania</option>
