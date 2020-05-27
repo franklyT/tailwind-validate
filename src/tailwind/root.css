@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+
+.form__input {
+  @apply .border .py-2 .px-3 opacity-100;
+}
+
+@tailwind utilities;
+
+body {
+  margin-left: 30vw;
+  margin-right: 30vw;
+  margin-top: 15vh;
+}
+
+.form__input__valid {
+  background: url(../images/check.jpg);
+  background-size: 10%;
+  background-repeat: no-repeat;
+  background-position: right 5% bottom 50%;
+}
+
+.form__input__invalid {
+    background: url(../images/cross.jpg);
+    background-size: 10%;
+    background-repeat: no-repeat;
+    background-position: right 5% bottom 50%;
+  }
+  

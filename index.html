@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="dist/CSS/root.min.css" type="text/css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+</head>
+
+<body>
+    <div>
+        <p class="text-2xl mb-1 tracking-wide font-mono">Shipping Information</p>
+        <hr class="w-2/6 mb-4" />
+
+        <div id="name__block" class="block">
+            <div class="inline-block w-auto">
+                <p>First Name *</p>
+                <input id="form__firstName__input" class="form__input"></input>
+            </div>
+
+            <div class="inline-block w-auto">
+                <p>Last Name *</p>
+                <input id="form__lastName__input" class="form__input"></input>
+            </div>
+        </div>
+
+        <p>Company Name</p>
+        <input class="block form__input"></input>
+
+        <div id="contact__block" class="block">
+            <div class="inline-block w-auto">
+                <p>Email *</p>
+                <input id="form__email__input" class="form__input"></input>
+            </div>
+            <div class="inline-block w-auto">
+                <p>Phone</p>
+                <input id="form__phone__input" class="form__input"></input>
+            </div>
+        </div>
+
+        <div class="inline-block relative pr-2">Create account?</div>
+        <input id="create__account__checkbox" class="inline-block mr-8 mb-4 mt-2 leading-tight" type="checkbox"
+            autocomplete="off">
+
+        <div id="form__password__block" class="block hidden password-disguised">
+            <div>
+                <p>Password *</p>
+                <input id="form__password__1" class="form__input" type="password" placeholder="**********"
+                    autocomplete="off"></input>
+            </div>
+
+            <div>
+                <p>Reenter Password *</p>
+                <input id="form__password__2" class="form__input" type="password" placeholder="**********"
+                    autocomplete="off"></input>
+            </div>
+            <div class="mt-2">
+                <input id="form__password__show" class="not-password inline-block mr-1 leading-tight" type="checkbox"
+                    autocomplete="off">
+                <p class="inline-block mb-2"> Show Password? </p>
+            </div>
+            <div class="mt-4">
+                <div class="block mb-1">
+                    <input id="" class="not-password inline-block mr-1 leading-tight" type="checkbox" autocomplete="off"
+                        checked>
+                    <p class="inline-block"> Send me awesome offers/spam please! </p>
+                </div>
+                <div class="block">
+                    <input id="" class="not-password inline-block mr-1 leading-tight" type="checkbox" autocomplete="off"
+                        checked>
+                    <p class="inline-block mb-4"> Send me slightly less aggressive spam please! </p>
+                </div>
+            </div>
+
+        </div>
+
+        <p>Country *</p>
+        <select id="form__select__country" class="form__input"></select>
+
+        <p>Address *</p>
+        <input id="form__address__input" class="form__input mb-2" placeholder="Address 1"></input>
+        <input class="block form__input" placeholder="Address 2 (Optional)"></input>
+
+        <p>City *</p>
+        <input id="form__city__input" class="block form__input"></input>
+
+        <div id="state__block" class="block">
+            <div id="form__select__state__block" class="inline-block">
+                <p>State *</p>
+                <select id="form__select__state" class="form__input"></select>
+            </div>
+            <div class="inline-block">
+                <p>Zipcode *</p>
+                <input id="form__zip__input" class="form__input">
+                </input>
+            </div>
+        </div>
+
+        <button id="form__ship__button" onclick="validate()"
+            class="block mt-4 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded mb-12">
+            <span>Ship Now</span>
+        </button>
+    </div>
+
+    <script src="./dist/js/root.js"></script>
+</body>
+
+</html>
