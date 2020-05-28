@@ -69,6 +69,24 @@ for (
     });
 }
 
+document
+  .getElementById("form__password__1")!
+  .addEventListener("change", function (evt: Event) {
+    if (
+      /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(
+        (<HTMLInputElement>evt.target!).value
+      )
+    ) {
+      document
+        .getElementById("form__password__requirements")
+        ?.classList.add("hidden");
+    } else {
+      document
+        .getElementById("form__password__requirements")
+        ?.classList.remove("hidden");
+    }
+  });
+
 // Prevents copy paste in password reentry
 document
   .getElementById("form__password__2")!

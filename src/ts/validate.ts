@@ -48,7 +48,7 @@ document
   "form__firstName__input",
   "form__lastName__input",
   "form__address__input",
-  "form__city__input",
+  "form__city__input"
 ].forEach(function (elm) {
   document.getElementById(elm)?.addEventListener("change", function () {
     validateCSS(notEmpty, this);
@@ -69,30 +69,5 @@ document
     }
   });
 
-function validate() {
-  emailIsValid(
-    (<HTMLInputElement>document.getElementById("form__email__input"))!.value
-  )
-    ? console.log("email is valid")
-    : console.log("email is invalid");
-  console.log(
-    phoneIsValid(
-      (<HTMLInputElement>document.getElementById("form__phone__input"))!.value
-    )
-  );
-
-  if (
-    (<HTMLSelectElement>document.getElementById("form__select__country"))!
-      .options[
-      (<HTMLSelectElement>document.getElementById("form__select__country"))!
-        .selectedIndex
-    ].value === "United States of America"
-  ) {
-    console.log("usa");
-    console.log(
-      usZipIsValid(
-        (<HTMLInputElement>document.getElementById("form__zip__input"))!.value
-      )
-    );
+  function validate() {
   }
-}

@@ -48,7 +48,7 @@ function notEmpty(str) {
     "form__firstName__input",
     "form__lastName__input",
     "form__address__input",
-    "form__city__input",
+    "form__city__input"
 ].forEach(function (elm) {
     var _a;
     (_a = document.getElementById(elm)) === null || _a === void 0 ? void 0 : _a.addEventListener("change", function () {
@@ -64,16 +64,6 @@ function notEmpty(str) {
     }
 });
 function validate() {
-    emailIsValid(document.getElementById("form__email__input").value)
-        ? console.log("email is valid")
-        : console.log("email is invalid");
-    console.log(phoneIsValid(document.getElementById("form__phone__input").value));
-    if (document.getElementById("form__select__country")
-        .options[document.getElementById("form__select__country")
-        .selectedIndex].value === "United States of America") {
-        console.log("usa");
-        console.log(usZipIsValid(document.getElementById("form__zip__input").value));
-    }
 }
 var _a, _b;
 function cleanPasswordInput() {
@@ -127,6 +117,19 @@ var _loop_1 = function (elms, iterator) {
 for (var elms = ["form__password__1", "form__password__2"], iterator = 0; iterator < 2; iterator += 1) {
     _loop_1(elms, iterator);
 }
+document
+    .getElementById("form__password__1")
+    .addEventListener("change", function (evt) {
+    var _a, _b;
+    if (/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(evt.target.value)) {
+        (_a = document
+            .getElementById("form__password__requirements")) === null || _a === void 0 ? void 0 : _a.classList.add("hidden");
+    }
+    else {
+        (_b = document
+            .getElementById("form__password__requirements")) === null || _b === void 0 ? void 0 : _b.classList.remove("hidden");
+    }
+});
 // Prevents copy paste in password reentry
 document
     .getElementById("form__password__2")
