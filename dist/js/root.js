@@ -109,6 +109,30 @@ document
     .getElementById("form__password__show")) === null || _a === void 0 ? void 0 : _a.addEventListener("change", function () {
     togglePasswordVisibility();
 });
+document
+    .getElementById("form__password__1")
+    .addEventListener("change", function (evt) {
+    if (this.value !==
+        document.getElementById("form__password__2").value) {
+        (document.getElementById("form__password__match")).classList.remove("hidden");
+    }
+    else {
+        document.getElementById("form__password__match").classList.add("hidden");
+    }
+});
+document
+    .getElementById("form__password__2")
+    .addEventListener("change", function (evt) {
+    if (this.value !==
+        document.getElementById("form__password__1").value) {
+        document
+            .getElementById("form__password__match")
+            .classList.remove("hidden");
+    }
+    else {
+        document.getElementById("form__password__match").classList.add("hidden");
+    }
+});
 // Prevents copy paste in password reentry
 document
     .getElementById("form__password__2")

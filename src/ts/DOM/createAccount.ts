@@ -17,7 +17,7 @@ function togglePasswordVisibility() {
   } else {
     newType = "password";
   }
-  
+
   passwordBlock!
     .querySelectorAll("input:not(.not-password)")
     .forEach((inp: any) => {
@@ -39,6 +39,36 @@ document
   .getElementById("form__password__show")
   ?.addEventListener("change", function () {
     togglePasswordVisibility();
+  });
+
+document
+  .getElementById("form__password__1")!
+  .addEventListener("change", function (evt: Event) {
+    if (
+      (<HTMLInputElement>this)!.value !==
+      (<HTMLInputElement>document.getElementById("form__password__2"))!.value
+    ) {
+      (<HTMLInputElement>(
+        document.getElementById("form__password__match")
+      ))!.classList.remove("hidden");
+    } else {
+      document.getElementById("form__password__match")!.classList.add("hidden");
+    }
+  });
+
+document
+  .getElementById("form__password__2")!
+  .addEventListener("change", function (evt: Event) {
+    if (
+      (<HTMLInputElement>this)!.value !==
+      (<HTMLInputElement>document.getElementById("form__password__1"))!.value
+    ) {
+      document
+        .getElementById("form__password__match")!
+        .classList.remove("hidden");
+    } else {
+      document.getElementById("form__password__match")!.classList.add("hidden");
+    }
   });
 
 // Prevents copy paste in password reentry

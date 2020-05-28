@@ -49,29 +49,32 @@
                     <input id="form__password__1" type="password" class="form__input" placeholder="**********"
                         autocomplete="off" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" />
                 </div>
-
+                <div id="form__password__requirements" class="requirements text-red-500 font-bold">
+                    Your password must be at least 6 characters as well as contain at least one uppercase, one
+                    lowercase, and one number.
+                </div>
                 <div>
                     <p>Reenter Password *</p>
                     <input id="form__password__2" type="password" class="form__input" placeholder="**********"
                         autocomplete="off" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" />
                 </div>
-                <div class="requirements">
-                    Your password must be at least 6 characters as well as contain at least one uppercase, one lowercase, and one number.
-                  </div>
+                <div id="form__password__match" class="requirements text-red-500 font-bold hidden">
+                    Your passwords must match.
+                </div>
                 <div class="mt-2">
-                    <input id="form__password__show" type="checkbox" class="not-password inline-block mr-1 leading-tight"
-                        autocomplete="off" />
+                    <input id="form__password__show" type="checkbox"
+                        class="not-password inline-block mr-1 leading-tight" autocomplete="off" />
                     <p class="inline-block mb-2"> Show Password? </p>
                 </div>
                 <div class="mt-4">
                     <div class="block mb-1">
-                        <input type="checkbox" class="not-password inline-block mr-1 leading-tight"
-                            autocomplete="off" checked />
+                        <input type="checkbox" class="not-password inline-block mr-1 leading-tight" autocomplete="off"
+                            checked />
                         <p class="inline-block"> Send me awesome offers/spam please! </p>
                     </div>
                     <div class="block">
-                        <input type="checkbox" class="not-password inline-block mr-1 leading-tight"
-                            autocomplete="off" checked />
+                        <input type="checkbox" class="not-password inline-block mr-1 leading-tight" autocomplete="off"
+                            checked />
                         <p class="inline-block mb-4"> Send me slightly less aggressive spam please! </p>
                     </div>
                 </div>
