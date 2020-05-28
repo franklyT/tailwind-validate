@@ -41,35 +41,21 @@ document
     togglePasswordVisibility();
   });
 
-document
-  .getElementById("form__password__1")!
-  .addEventListener("change", function (evt: Event) {
-    if (
-      (<HTMLInputElement>this)!.value !==
-      (<HTMLInputElement>document.getElementById("form__password__2"))!.value
-    ) {
-      (<HTMLInputElement>(
-        document.getElementById("form__password__match")
-      ))!.classList.remove("hidden");
-    } else {
-      document.getElementById("form__password__match")!.classList.add("hidden");
-    }
-  });
-
-document
-  .getElementById("form__password__2")!
-  .addEventListener("change", function (evt: Event) {
-    if (
-      (<HTMLInputElement>this)!.value !==
-      (<HTMLInputElement>document.getElementById("form__password__1"))!.value
-    ) {
-      document
-        .getElementById("form__password__match")!
-        .classList.remove("hidden");
-    } else {
-      document.getElementById("form__password__match")!.classList.add("hidden");
-    }
-  });
+  // I realize this is over-engineered, mostly as a thought exercise
+  for (let elms = ['form__password__1', 'form__password__2'], iterator = 0; iterator < 2; iterator += 1) {
+    document.getElementById(elms[iterator])?.addEventListener("change", function () {
+      if (
+        (<HTMLInputElement>this)!.value !==
+        (<HTMLInputElement>document.getElementById(elms.filter(elm => elm !== elms[iterator])[0]))!.value
+      ) {
+        (<HTMLInputElement>(
+          document.getElementById("form__password__match")
+        ))!.classList.remove("hidden");
+      } else {
+        document.getElementById("form__password__match")!.classList.add("hidden");
+      }  
+    });
+  }
 
 // Prevents copy paste in password reentry
 document

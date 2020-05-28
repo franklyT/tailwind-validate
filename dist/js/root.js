@@ -75,7 +75,7 @@ function validate() {
         console.log(usZipIsValid(document.getElementById("form__zip__input").value));
     }
 }
-var _a;
+var _a, _b;
 function cleanPasswordInput() {
     for (var iterator = 1; iterator < 3; iterator += 1) {
         (document.getElementById("form__password__" + iterator)).value = "";
@@ -109,30 +109,21 @@ document
     .getElementById("form__password__show")) === null || _a === void 0 ? void 0 : _a.addEventListener("change", function () {
     togglePasswordVisibility();
 });
-document
-    .getElementById("form__password__1")
-    .addEventListener("change", function (evt) {
-    if (this.value !==
-        document.getElementById("form__password__2").value) {
-        (document.getElementById("form__password__match")).classList.remove("hidden");
-    }
-    else {
-        document.getElementById("form__password__match").classList.add("hidden");
-    }
-});
-document
-    .getElementById("form__password__2")
-    .addEventListener("change", function (evt) {
-    if (this.value !==
-        document.getElementById("form__password__1").value) {
-        document
-            .getElementById("form__password__match")
-            .classList.remove("hidden");
-    }
-    else {
-        document.getElementById("form__password__match").classList.add("hidden");
-    }
-});
+var _loop_1 = function (elms, iterator) {
+    (_b = document.getElementById(elms[iterator])) === null || _b === void 0 ? void 0 : _b.addEventListener("change", function () {
+        if (this.value !==
+            document.getElementById(elms.filter(function (elm) { return elm !== elms[iterator]; })[0]).value) {
+            (document.getElementById("form__password__match")).classList.remove("hidden");
+        }
+        else {
+            document.getElementById("form__password__match").classList.add("hidden");
+        }
+    });
+};
+// I realize this is over-engineered, mostly as a thought exercise
+for (var elms = ['form__password__1', 'form__password__2'], iterator = 0; iterator < 2; iterator += 1) {
+    _loop_1(elms, iterator);
+}
 // Prevents copy paste in password reentry
 document
     .getElementById("form__password__2")
